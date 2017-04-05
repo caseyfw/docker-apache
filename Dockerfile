@@ -6,7 +6,10 @@ sed -i 's#^DocumentRoot ".*#DocumentRoot "/web"#g' /etc/apache2/httpd.conf && \
 sed -i 's/AllowOverride none/AllowOverride All/' /etc/apache2/httpd.conf && \
 sed -i 's/Require all denied/Require all granted/' /etc/apache2/httpd.conf && \
 sed -i 's#logs/.*\.log#/dev/stdout#g' /etc/apache2/httpd.conf && \
+echo 'Alias "${WEB_PATH}" /code/web' >> /etc/apache2/httpd.conf && \
 echo "Success."
+
+ENV WEB_PATH="/"
 
 EXPOSE 80
 WORKDIR /code
