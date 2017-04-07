@@ -10,8 +10,6 @@ sed -i 's#logs/.*\.log#/dev/stdout#g' /etc/apache2/httpd.conf && \
 echo 'Alias "${WEB_PATH}" /web' >> /etc/apache2/httpd.conf && \
 echo "Success."
 
-ENV WEB_PATH="/"
-
 EXPOSE 80
 WORKDIR /web
 CMD ["httpd", "-D", "FOREGROUND"]
