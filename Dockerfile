@@ -11,9 +11,6 @@ sed -i 's#logs/.*\.log#/dev/stdout#g' /etc/apache2/httpd.conf && \
 echo 'Alias "${WEB_PATH}" /web' >> /etc/apache2/httpd.conf && \
 echo "Success."
 
-ADD apache2-foreground.sh /apache2-foreground.sh
-RUN chmod 755 /apache2-foreground.sh
-
 EXPOSE 8080
 WORKDIR /web
 CMD ["httpd", "-D", "FOREGROUND"]
